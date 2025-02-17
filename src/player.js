@@ -1,5 +1,6 @@
 import { Gameboard } from "./gameboard.js";
 
+
 export class Player {
   constructor(name) {
     this.name = name;
@@ -14,18 +15,6 @@ export class Player {
 export class Realplayer extends Player {
   constructor(name) {
     super(name); 
-  }
-
-  renderBoard(container) {
-    for (let x = 0; x < this.gameboard.board.length; x++) {
-      for (let y = 0; y < this.gameboard.board[x].length; y++){
-        const div = document.createElement('div');
-        div.classList.add('cell')
-        div.dataset.x = x;
-        div.dataset.y = y;
-        container.append(div);
-      }
-    }
   }
 }
 
