@@ -96,7 +96,23 @@ h2 {
   min-height: 1.2em;
 }
 
-@media (prefers-color-scheme: ligth) {
+.restart-button {
+  margin: 1rem auto;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1em;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.restart-button:hover {
+  background-color: #747bff;
+}
+
+@media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -122,5 +138,11 @@ h2 {
   }
   .preview {
     background-color: #90c090;
+  }
+  .restart-button {
+    background-color: #4f46e5;
+  }
+  .restart-button:hover {
+    background-color: #4338ca;
   }
 }

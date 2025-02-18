@@ -1,8 +1,9 @@
 export class Gameview {
-  constructor(onCellClick, onPlacementClick, onRotate) {
+  constructor(onCellClick, onPlacementClick, onRotate, onRestart) {
     this.onCellClick  = onCellClick;
     this.onPlacementClick = onPlacementClick;
     this.onRotate = onRotate;
+    this.onRestart = onRestart;
     this.messageElement = document.getElementById('message');
 
     //Add keyboad listener for rotation
@@ -99,6 +100,7 @@ export class Gameview {
   showPlacementControls() {
     document.getElementById('computer-board').style.display = 'none';
     document.querySelector('.board-container:nth-child(2)').style.display = 'none';
+    this.hideRestartButton();
   }
 
   hidePlacementControls() {
@@ -108,5 +110,25 @@ export class Gameview {
 
   disableBoard() {
     document.getElementById('computer-board').style.pointerEvents = 'none';
+  }
+
+  showRestartButton() {
+    let restartButton = document.getElementById('restar-button');
+    if (!restartButton) {
+      restartButton = document.createElement('button');
+      restartButton.id = 'restart-button';
+      restartButton.textContent = 'Play again';
+      restartButton.className = 'restart-button';
+      restartButton.addEventListener('click', () => this.onRestart());
+      this.messageElement.parentNode.insertBefore(restartButton, this.messageElement.nextSibling);
+    }
+    restartButton.style.display = 'block';
+  }
+
+  hideRestartButton() {
+    const restartButton = document.getElementById('restart-button');
+    if (restartButton) {
+      restartButton.style.display = 'none';
+    }
   }
 }
